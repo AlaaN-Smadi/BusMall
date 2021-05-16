@@ -149,6 +149,14 @@ function clicked(event) {
         // secondImg.removeEventListener();
         // thirdImg.removeEventListener();
 
+        if (event.target.id === "firstImg") {
+            objectArray[img1].clicks++;
+        } else if (event.target.id === "secondImg") {
+            objectArray[img2].clicks++;
+        } else if (event.target.id === "thirdImg") {
+            objectArray[img3].clicks++;
+        }
+        
         btnSect.appendChild(newBtn);
 
         newBtn.textContent = 'View Chart';

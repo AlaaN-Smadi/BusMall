@@ -1,0 +1,109 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(227, 240, 241);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+header{
+    margin-bottom: 10px;
+    height: 150px;
+    /* border: 1px solid green; */
+    background: linear-gradient(rgb(127, 192, 138),rgb(227, 240, 241),rgb(127, 192, 138),rgb(127, 192, 138));
+}
+h1{
+    margin-top: 3px;
+    padding-left: 15px;
+    display: inline-block;
+    line-height: 100px;
+    width: 600px;
+    margin-bottom: 15px;
+    font-size: xx-large;
+    background: green;
+    border-top-right-radius: 75%;
+    border-bottom-right-radius: 75%;
+}
+nav{
+    
+    text-align: center;
+    /* padding-left: 15px; */
+}
+
+nav ul li{
+    display: inline-block;   
+}
+#lolo{
+    text-decoration: none;
+    padding: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    color: honeydew;
+    background: green;
+    border-radius: 10px;
+}
+#lolo:hover{
+    background: honeydew;
+    color: black;
+    transition-duration: 0.7s;
+  cursor: pointer; 
+  border-radius: 15px;
+}
+main{
+    height: 410px;
+}
+img{
+    vertical-align: middle;
+    
+    
+}
+img:hover{
+    filter:brightness(200%);
+    border-radius: 15px;
+    transition-duration: 0.5s;
+}
+
+#contactUp{
+    width: 75%;
+    margin: 150px;
+    margin-top: 60px;
+    margin-bottom: 35px;
+    display: inline-block;
+    /* margin-right: 150px; */
+    height: 400px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+  
+    border-radius: 35px;
+    background: rgb(127, 192, 138);
+    border: 1px solid green;
+  }
+  #contactDown{
+    width: 75%;
+    margin-left: 150px;
+    display: inline-block;
+    /* margin-right: 150px; */
+    /* height: 350px; */
+    border-radius: 35px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 50px;
+    background: rgb(127, 192, 138);
+    border: 1px solid green;
+  }
+  .h2Header{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: x-large;
+  }
+  #middleDiv{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  #Titel{
+    text-align: center;
+    margin-top: 35px;
+    margin-right: 50px;
+  }
+  #none{
+      margin-left: 15px;
+  }

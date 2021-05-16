@@ -1,0 +1,148 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(187, 228, 208);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+header{
+    margin-bottom: 10px;
+    height: 150px;
+    /* border: 1px solid green; */
+    background: linear-gradient(rgb(127, 192, 138),rgb(227, 240, 241),rgb(127, 192, 138),rgb(127, 192, 138));
+}
+h1{
+    margin-top: 3px;
+    padding-left: 15px;
+    display: inline-block;
+    line-height: 100px;
+    width: 600px;
+    margin-bottom: 15px;
+    font-size: xx-large;
+    background: green;
+    border-top-right-radius: 75%;
+    border-bottom-right-radius: 75%;
+}
+nav{
+    
+    text-align: center;
+    /* padding-left: 15px; */
+}
+
+nav ul li{
+    display: inline-block;   
+}
+nav ul li a{
+    text-decoration: none;
+    padding: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    color: honeydew;
+    background: green;
+    border-radius: 10px;
+}
+a:hover{
+    background: honeydew;
+    color: black;
+    transition-duration: 0.7s;
+  cursor: pointer; 
+  border-radius: 15px;
+}
+#upperSect{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 100%;
+    /* text-align: center; */
+}
+#imgSect{
+    /* background: rgb(167, 220, 224); */
+    width: 90%;
+    /* height: 500px; */
+    margin: 25px;
+    border: 1px solid green;
+    border-radius: 15px;
+    padding: 5px;
+}
+img{
+    vertical-align: middle;
+    width: 32%;
+    border: 1px solid rgb(0, 129, 0);
+    border-radius: 15px;
+}
+img:nth-child(2){
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+}
+#noItemsbtn{
+    background: rgb(219, 214, 214);
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+#noItems{
+    margin-right: 15px;
+    width: 50px;
+    background: white;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 8px;
+    float: right;
+    border: 1px solid black;
+}
+#noItems2{
+    margin-right: 15px;
+    width: 50px;
+    border-radius: 8px;
+    background: rgb(223, 230, 218);
+    padding: 5px;
+    font-size: 15px;
+    float: right;
+    border: 1px solid black;
+}
+#inputDiv{
+width: 49%;
+float: left;
+}
+
+
+footer{
+    border-radius: 70%;
+    margin-top: 10px;
+    height: 50px;
+    /* border: 1px solid green; */
+    line-height: 50px;
+    text-align: center;
+    background: linear-gradient(rgb(127, 192, 138),rgb(227, 240, 241),rgb(127, 192, 138));
+
+}
+h4{
+    
+    font-size: larger;
+    display: inline-block;
+    /* background: green; */
+}
+#btnSect{
+    text-align: center;
+}
+#asas{
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+    padding-right: 20%;
+    padding-left: 20%;
+    line-height: 25px;
+}
+#lowerSect{
+    border-radius: 35px;
+    background: rgba(86, 184, 86, 0.541);
+
+}
+#viewBTN{
+    background: rgb(219, 214, 214);
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid black;
+}

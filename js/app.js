@@ -107,7 +107,7 @@ function repeatPrevious() { // function to make sure that images did not repeat
 
 let img1, img2, img3;
 function render() {
-
+ 
     img1 = randomNumber();
     img2 = randomNumber();
     img3 = randomNumber();

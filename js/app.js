@@ -87,28 +87,73 @@ function noItemsFunction(event) {
     }
 }
 
+// check images for iteration
+let previousImg = [];
+
+
+function repeatPrevious() { // function to make sure that images did not repeat 
+    while ((img1 === previousImg[0]) || (img1 === previousImg[1]) || (img1 === previousImg[2])) {
+        img1 = randomNumber();
+    }
+    while ((img2 === previousImg[0]) || (img2 === previousImg[1]) || (img2 === previousImg[2])) {
+        img2 = randomNumber();
+    }
+    while ((img3 === previousImg[0]) || (img3 === previousImg[1]) || (img3 === previousImg[2])) {
+        img3 = randomNumber();
+    }
+}
 
 // show images 
 
 let img1, img2, img3;
 function render() {
+
     img1 = randomNumber();
     img2 = randomNumber();
     img3 = randomNumber();
 
-    while (img1 === img2 || img1 === img3 || img2 === img3) {
+    repeatPrevious();
+
+    // while loop to make sure that images are not the same and will not repeat two times
+    while ((img1 === img2 || img1 === img3 || img2 === img3)) {
         img1 = randomNumber();
         img2 = randomNumber();
         img3 = randomNumber();
+
+        repeatPrevious();
+
     }
 
-    // console.log(img1);
-    // console.log(img2);
-    // console.log(img3);
+    // ------------------------------------
+    //   console to test random numbers 
+    // ------------------------------------
+    /*
+        console.log("previousImg");
+        for(let i=0;i<previousImg.length;i++){
+            console.log(previousImg[i]);
+        }
+        
+        console.log("newImg");
+    
+        console.log(img1);
+        console.log(img2);
+        console.log(img3);
+    */
+    // -------------------------------
+
+
+
+    previousImg = []; // to make previousImg array empty
 
     objectArray[img1].show++;
     objectArray[img2].show++;
     objectArray[img3].show++;
+
+    // enter Images into previousImg array to check them in the next iteration
+    previousImg.push(img1);
+    previousImg.push(img2);
+    previousImg.push(img3);
+
 
     firstImg.setAttribute('src', objectArray[img1].src);
     secondImg.setAttribute('src', objectArray[img2].src);
@@ -156,7 +201,7 @@ function clicked(event) {
         } else if (event.target.id === "thirdImg") {
             objectArray[img3].clicks++;
         }
-        
+
         btnSect.appendChild(newBtn);
 
         newBtn.textContent = 'View Chart';
@@ -169,7 +214,11 @@ function clicked(event) {
     //    console.log(objectArray);
 }
 
+// arrays for chart
 
+let fullNames = [];
+let fullClick = [];
+let fullViews = [];
 
 // View last results from button 
 
@@ -178,12 +227,71 @@ newBtn.addEventListener('click', view);
 function view(event) {
 
     for (let i = 0; i < objectArray.length; i++) {
-        console.log(i);
+        // console.log(i);
         let ulEl = document.createElement('ul');
         let liEl = document.createElement('li');
 
         lowerSect.appendChild(ulEl);
         ulEl.appendChild(liEl);
         liEl.textContent = `${objectArray[i].name} had ${objectArray[i].clicks} votes, and was seen ${objectArray[i].show} times.`;
+
+        // input information for arrays
+        fullNames.push(objectArray[i].name);
+        fullClick.push(objectArray[i].clicks);
+        fullViews.push(objectArray[i].show);
     }
+
+    createChart(); // call chart
+    newBtn.removeEventListener('click', view);
 }
+
+
+
+
+
+// Creating Chart Function
+
+function createChart() {
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: fullNames,
+            datasets: [{ // numer of views
+                label: 'Number of Views',
+                data: fullViews,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)'
+
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)'
+
+                ],
+                borderWidth: 1
+            },
+            { // number of clicks
+                label: 'Number of Clicks',
+                data: fullClick,
+                backgroundColor: [
+                    'rgb(13, 13, 245)'
+
+                ],
+                borderColor: [
+                    'blue'
+
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+
+                }
+            }
+        }
+    });
+}
+

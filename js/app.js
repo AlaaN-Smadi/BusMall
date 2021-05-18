@@ -3,6 +3,7 @@
 
 let objectArray = []; // array of all objects
 
+
 function SetImagesObject(name, src) { // constructure to create objects
     this.name = name.split('.')[0];
     this.src = 'Images/' + src;
@@ -11,7 +12,6 @@ function SetImagesObject(name, src) { // constructure to create objects
 
     objectArray.push(this);
 }
-
 
 // array for image sources 
 let imageSrc = ['bag.jpg', 'banana.jpg', 'bathroom.jpg', 'boots.jpg', 'breakfast.jpg', 'bubblegum.jpg', 'chair.jpg', 'cthulhu.jpg', 'dog-duck.jpg', 'dragon.jpg', 'pen.jpg', 'pet-sweep.jpg', 'scissors.jpg', 'shark.jpg', 'sweep.png', 'tauntaun.jpg', 'unicorn.jpg', 'water-can.jpg', 'wine-glass.jpg']
@@ -25,6 +25,8 @@ for (let i = 0; i < imageSrc.length; i++) {
 function randomNumber() { // generate random number
     return (Math.floor(Math.random() * (objectArray.length)));
 }
+
+getDataLocally();
 
 
 /*   ---------------------------
@@ -106,6 +108,7 @@ function repeatPrevious() { // function to make sure that images did not repeat
 // show images 
 
 let img1, img2, img3;
+
 function render() {
  
     img1 = randomNumber();
@@ -157,7 +160,7 @@ function render() {
 
     firstImg.setAttribute('src', objectArray[img1].src);
     secondImg.setAttribute('src', objectArray[img2].src);
-    thirdImg.setAttribute('src', objectArray[img3].src);
+    thirdImg.setAttribute('src', objectArray[img3].src);    
 }
 render();
 
@@ -177,6 +180,7 @@ let a = 0;
 
 function clicked(event) {
 
+    event.preventDefault();
     a++;
     if (a < parseInt(number_of_iterations[0])) {
         if (event.target.id === "firstImg") {
@@ -214,6 +218,36 @@ function clicked(event) {
     //    console.log(objectArray);
 }
 
+// Local Storing data by using function
+function storageLocally(){
+    let myViews = JSON.stringify(fullViews);
+    let myClicks = JSON.stringify(fullClick);
+
+    localStorage.setItem("clicks",myClicks);
+    localStorage.setItem("views",myViews);
+        
+}
+// Rendering Data from Local Storage 
+function getDataLocally(){
+    let myViews = localStorage.getItem("views");
+    let myClicks = localStorage.getItem("clicks");
+
+    let viewCount = JSON.parse(myViews);
+    let clickCount = JSON.parse(myClicks);
+
+    if (viewCount !== null){
+        for(let i=0;i<objectArray.length;i++){
+            objectArray[i].show = viewCount[i];
+        }
+    }
+    if(clickCount !== null){
+        for(let i=0;i<objectArray.length;i++){
+            objectArray[i].clicks = clickCount[i];
+        }
+    }
+    
+}
+
 // arrays for chart
 
 let fullNames = [];
@@ -240,6 +274,7 @@ function view(event) {
         fullClick.push(objectArray[i].clicks);
         fullViews.push(objectArray[i].show);
     }
+    storageLocally(); // calling function to store data locally
 
     createChart(); // call chart
     newBtn.removeEventListener('click', view);

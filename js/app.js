@@ -212,7 +212,8 @@ function clicked(event) {
 
         firstImg.removeEventListener('click', clicked);
         secondImg.removeEventListener('click', clicked);
-        thirdImg.removeEventListener('click', clicked);
+        thirdImg.removeEventListener('click',clicked);
+        
 
     }
     //    console.log(objectArray);

@@ -1,0 +1,61 @@
+/*SIDEBAR*/
+.sidebar {
+    background: #0e5eaa;
+    width: 100px;
+    height: 100%;
+    padding-top: 10px;
+    font-family: helvetica;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+}
+
+.sidebar a {
+    text-decoration: none;
+/* Removes the underline from links. */
+    color: #e9e7e7;
+/* Text color of the menu items */
+}
+
+.sidebar img {
+    margin-right: auto;
+    margin-left: auto;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-right: 20px;
+}
+
+.sidebar ul {
+    line-height: 40px;
+    overflow: hidden;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    list-style-type: none;
+    background: #021c72;
+/* Background colour of the menu items. */
+    color: #9dc4e9;
+/* Text colour of the side bar titles. (Not the links). */
+}
+
+.listItemA {
+    height: 70px;
+    width: 100%;
+/* Alter this to be the .sidebar:width PLUS 40 */
+    transition: .3s;
+    border: 1px solid rgba(173, 173, 173, 0.541);
+    left:15px;
+    text-align: center;
+    /* line-height: 100%; */
+}
+
+.listItemA:hover {
+    left: 0;
+    background: #000000;
+    color: blanchedalmond;
+    transition: 0.5s;
+    cursor: pointer;
+}
